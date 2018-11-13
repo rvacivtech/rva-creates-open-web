@@ -6,18 +6,18 @@
 
 ### RVA Standard Logo - Public logos available for download in EPS format  
 
-![RVA Logo EPS](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/RVAlogo.jpg)  
-![RVA Logo v1 EPS](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/RVAlogo_v1.jpg)  
-![RVA Logo v2 EPS](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/RVAlogo_v2.jpg)  
+![RVA Logo EPS](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/rva-logo.jpg)  
+![RVA Logo v1 EPS](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/rva-logo-v1.jpg)  
+![RVA Logo v2 EPS](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/rva-logo-v2.jpg)  
 
 
 
 ### Public logos available for download in JPG format  
 
-![RVA Logo v1 JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/RVAlogo_v1.jpg)  
-![RVA Logo v2 JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/RVAlogo_v2.jpg)  
-![RVA Logo v1 Full Size JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/RVAlogo_v1_fullsize.jpg)  
-![RVA Logo v2 Full Size JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/RVAlogo_v2_fullsize.jpg)  
+![RVA Logo v1 JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/rva-logo-v1.jpg)  
+![RVA Logo v2 JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/rva-logo-v2.jpg)  
+![RVA Logo v1 Full Size JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/rva-logo-v1-fullsize.jpg)  
+![RVA Logo v2 Full Size JPG](https://raw.githubusercontent.com/rvacivtech/rva-creates-open-web/master/img/rva-logo-v2-fullsize.jpg)  
 
 ### Color Standard: None  
 
