@@ -43,3 +43,8 @@ Under ¼" cap height logo reproduces in solid black, white or color only
 [RVA Logo v2 Full Size JPG](http://www.rvacreates.com/assets/images/RVAlogo_v2_fullsize.jpg)  
 [Color Standard](http://www.rvacreates.com/assets/branding-color-standard.png)  
 [RVA Logotype Subscript](http://www.rvacreates.com/assets/images/branding-logotype.png)  
+
+
+
+## Notes  
+[Force File Upload Input Button To Right Side In WebKit](https://css-tricks.com/snippets/css/force-file-upload-input-button-to-right-side-in-webkit/)  
