@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Image Upload with &#60;input type="file" /&#62;</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=1024, user-scalable=no" />
+    <link type="text/css" rel="stylesheet" href="https://bowdenweb.com/a/formalize/assets/css/formalize.css" />
+<style>
+input[type=file]{
+	padding:10px;
+	background:#aaa;
+}
+#submit,
+output,
+#img-preview{
+	display:block;
+	margin:10px;
+}
+output{
+	padding:10px;
+}
+#div-img-preview{
+	margin:10px auto;
+	outline:3px dotted #666;
+	text-align:center;
+	width:100%;
+	min-height:800px;
+}
+h1#text-mask{
+	background-image: url("https://bowdenweb.com/a/i/dev/mask.jpg");
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	margin:0 auto;
+	font-size:250px;
+	line-height:250px;
+	text-align:center;
+}
+#svgtext{
+background:transparent url("rva-logo-v2-transparent.svg") 0 0 no-repeat;
+text-indent:-1999px;
+display:block;
+height:400px;
+width:400px;
+}
+
+#fake{
+	background:#c0c0c0 url("https://bowdenweb.com/php/img-upload/rva-logo-v2-transparent.svg") 50% 50% no-repeat;
+	outline:4px dotted #999;
+	width:100%;
+	height:800px;
+}
+
+
+img#img-preview{
+  /**min-width: 1200px;
+  min-height:1200px;**/
+  width:auto;
+  height:auto;
+  outline:1px solid #000;
+}
+
+.clip-svg {
+  -webkit-clip-path: url(#myClip);
+  clip-path: url(#myClip);
+}
+#svg-rva{
+	outline:1px solid #000;
+	width:100%;
+	height:100%;
+}
+
+
+
+.alpha-target-rva{
+  -webkit-mask-image: url("https://bowdenweb.com/css/mask/img/rva-logo-v1-alpha-mask-819x276.png");
+          mask-image: url("https://bowdenweb.com/css/mask/img/rva-logo-v1-alpha-mask-819x276.png");
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: 80%;
+          mask-size: 80%;
+}
+.luminance-target-rva {
+  -webkit-mask-image: url("https://bowdenweb.com/css/mask/img/rva-logo-v2-luminesence-mask-alt-848x304.png");
+          mask-image: url("https://bowdenweb.com/css/mask/img/rva-logo-v2-luminesence-mask-alt-848x304.png");
+  mask-mode: luminance;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: 80%;
+          mask-size: 80%;
+}
+
+.alpha-target-rva-v1{
+  -webkit-mask-image: url("https://bowdenweb.com/css/mask/img/rva-logo-eps-clear-b.png");
+  mask-image: url("https://bowdenweb.com/css/mask/img/rva-logo-eps-clear-b.png");
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size:100%;
+  mask-size:100%;
+}
+
+ul{
+	margin:0;
+}
+img#test{
+	max-width:1000px;
+}
+</style>
+  </head>
+  <body>
+    <div class="content">
+      <header></header>
+      <main>
+        <h1>Image Upload with <code>&#60;input type="file" /&#62;</code></h1>
+        <form method="post" enctype="multipart/form-data">
+          <fieldset>
+            <legend>Legend</legend>
+            <input type="file" id="file" name="files[]" multiple="multiple" required="required" accept="image/*" /> <!-- accept=".gif, .jpg, .jpeg, .png" -->
+            <label for="file">Select Images to Upload</label>
+            <output id="output-list"></output>
+            <output id="output-dimensions-list"></output>
+            <input type="submit" id="submit" name="submit" value="Submit" />
+            <div id="div-img-preview">
+              <img id="test" class="target alpha-target-rva-v1" src="https://bowdenweb.com/css/mask/img/richmond-va-from-belle-Isle-15821870184.jpg" alt="Masked Image Demo." /> 
+            </div>
+          </fieldset>
+        </form>
+      </main>
+      <footer></footer>
+<script>
+function inputFileReader(){
+  var htmlInputFile = document.getElementById('file');
+  var htmlDivImgPreview = document.getElementById('div-img-preview');
+  var htmlImgTest = document.getElementById('test');
+  var htmlImgPreview = document.getElementById('img-preview');
+  var htmlOutputList = document.getElementById('output-list');
+  var imgDimensions = [];
+  
+  function getViewport(){
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    console.log("width: " +w+ ", height: " +h);
+  };
+  getViewport();
+  function handleFileSelect(evt) {
+  	readURL(htmlInputFile);
+    var files = evt.target.files; // files is a FileList of File objects. List some properties.
+    var output = [];
+    console.log("img dimensions: " +imgDimensions);
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>File Name</strong>: ', escape(f.name), '</li><li><strong>Type</strong>: (', f.type || 'n/a', ') - ',
+      f.size, ' bytes</li><li><strong>Last Modified</strong>: ',
+      f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+      '</li>');
+    }
+    htmlOutputList.innerHTML = '<ul>' + output.join('') + '</ul><ul id="ul-test"></ul>';
+  };
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        htmlImgTest.setAttribute('src', e.target.result); // console.log(htmlImgTest.height+ ", " +htmlImgTest.width);
+        imgDimensions = [htmlImgTest.height, htmlImgTest.width]; // console.log("img dimensions: " +imgDimensions);
+        var outputDimensions = '<li><strong>Width</strong>: ' +htmlImgTest.width+ '</li><li><strong>Height</strong>: ' +htmlImgTest.height+ '</li>';
+        var htmlOutputDimensionsList = document.getElementById('ul-test');
+        htmlOutputDimensionsList.innerHTML = outputDimensions;
+        return imgDimensions;
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  };
+  htmlInputFile.addEventListener('change', handleFileSelect, false);
+  getViewport();
+};
+inputFileReader();
+
+</script>  
+  </body>
+</html>
